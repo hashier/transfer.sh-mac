@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE28C6A91DB94EB7003CCCE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28C6A81DB94EB7003CCCE8 /* Helper.swift */; };
 		CED432E01DB13B9C00966DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED432DF1DB13B9C00966DFD /* AppDelegate.swift */; };
 		CED432E21DB13B9C00966DFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED432E11DB13B9C00966DFD /* ViewController.swift */; };
 		CED432E41DB13B9C00966DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED432E31DB13B9C00966DFD /* Assets.xcassets */; };
 		CED432E71DB13B9C00966DFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED432E51DB13B9C00966DFD /* Main.storyboard */; };
+		CED432EF1DB141C900966DFD /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED432EE1DB141C900966DFD /* UploadFile.swift */; };
+		CED432F11DB3D9EF00966DFD /* MIME.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED432F01DB3D9EF00966DFD /* MIME.swift */; };
+		CED432F71DB3E60A00966DFD /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED432F61DB3E60A00966DFD /* DestinationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE28C6A81DB94EB7003CCCE8 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		CED432DC1DB13B9C00966DFD /* transfer.sh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = transfer.sh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED432DF1DB13B9C00966DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED432E11DB13B9C00966DFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CED432E31DB13B9C00966DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CED432E61DB13B9C00966DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CED432E81DB13B9C00966DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED432EE1DB141C900966DFD /* UploadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadFile.swift; sourceTree = "<group>"; };
+		CED432F01DB3D9EF00966DFD /* MIME.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIME.swift; sourceTree = "<group>"; };
+		CED432F61DB3E60A00966DFD /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +60,12 @@
 		CED432DE1DB13B9C00966DFD /* transfer.sh */ = {
 			isa = PBXGroup;
 			children = (
+				CE28C6A81DB94EB7003CCCE8 /* Helper.swift */,
 				CED432DF1DB13B9C00966DFD /* AppDelegate.swift */,
+				CED432F61DB3E60A00966DFD /* DestinationView.swift */,
 				CED432E11DB13B9C00966DFD /* ViewController.swift */,
+				CED432EE1DB141C900966DFD /* UploadFile.swift */,
+				CED432F01DB3D9EF00966DFD /* MIME.swift */,
 				CED432E31DB13B9C00966DFD /* Assets.xcassets */,
 				CED432E51DB13B9C00966DFD /* Main.storyboard */,
 				CED432E81DB13B9C00966DFD /* Info.plist */,
@@ -133,8 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED432EF1DB141C900966DFD /* UploadFile.swift in Sources */,
+				CED432F11DB3D9EF00966DFD /* MIME.swift in Sources */,
+				CED432F71DB3E60A00966DFD /* DestinationView.swift in Sources */,
 				CED432E21DB13B9C00966DFD /* ViewController.swift in Sources */,
 				CED432E01DB13B9C00966DFD /* AppDelegate.swift in Sources */,
+				CE28C6A91DB94EB7003CCCE8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
 				INFOPLIST_FILE = transfer.sh/Info.plist;
@@ -260,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
 				INFOPLIST_FILE = transfer.sh/Info.plist;
@@ -289,6 +307,7 @@
 				CED432ED1DB13B9C00966DFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

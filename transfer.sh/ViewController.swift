@@ -10,18 +10,37 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet private weak var destinationView: DestinationView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        destinationView.delegate = self
+
+        let test = UploadFile()
+        test.upload()
     }
 
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
+            print(representedObject ?? "")
         }
     }
 
-
 }
 
+// MARK: - DestinationViewDelegate
+extension ViewController: DestinationViewDelegate {
+
+    func processFileURLs(_ urls: [URL]) {
+        for (index, url) in urls.enumerated() {
+            print("hashier: num: \(index) url: \(url)")
+        }
+    }
+
+    func processFile(_ image: NSImage) {
+
+    }
+
+}
