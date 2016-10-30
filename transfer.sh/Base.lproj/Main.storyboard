@@ -695,11 +695,8 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KTN-YQ-C4F">
-                                <rect key="frame" x="160" y="20" width="160" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="0ZO-5Z-7p3"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="27J-Sp-bnl">
+                                <rect key="frame" x="20" y="20" width="440" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="27J-Sp-bnl">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -715,9 +712,11 @@
                             <constraint firstAttribute="bottom" secondItem="5tS-Wl-FTb" secondAttribute="bottom" id="WsZ-N1-pZV"/>
                             <constraint firstAttribute="bottom" secondItem="KTN-YQ-C4F" secondAttribute="bottom" constant="20" symbolic="YES" id="YNk-gI-AEd"/>
                             <constraint firstItem="5tS-Wl-FTb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZA4-2T-wSd"/>
+                            <constraint firstItem="KTN-YQ-C4F" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="ZCw-6Y-BHQ"/>
                             <constraint firstItem="5tS-Wl-FTb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="jO5-Qa-XU8"/>
                             <constraint firstItem="ffh-wP-maP" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="lib-Vy-jE9"/>
                             <constraint firstItem="KTN-YQ-C4F" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="n53-OI-fhp"/>
+                            <constraint firstAttribute="trailing" secondItem="KTN-YQ-C4F" secondAttribute="trailing" constant="20" symbolic="YES" id="quw-4E-IB2"/>
                         </constraints>
                     </view>
                     <connections>

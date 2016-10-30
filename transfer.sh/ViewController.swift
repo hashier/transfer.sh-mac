@@ -17,12 +17,14 @@ class ViewController: NSViewController {
         }
     }
     @IBOutlet private weak var destinationView: DestinationView!
-    @IBOutlet private weak var linkTextField: NSTextField!
+    @IBOutlet internal weak var linkTextField: NSTextField!
     @IBOutlet internal weak var progressTextField: NSTextField! {
         didSet {
             progressTextField.stringValue = "Upload not yet started"
         }
     }
+
+    internal var responseData = Data()
 
     // MARK: - View
     override func viewDidLoad() {
@@ -54,8 +56,36 @@ extension ViewController: DestinationViewDelegate {
     }
 
     private func uploadFile(_ fileToUpload: URL) {
-        let test = UploadFile()
+        let test = UploadFile(withDelegate: self)
         test.upload(fileToUpload)
     }
 
+}
+
+// MARK: - URLSessionTaskDelegate
+extension ViewController: URLSessionTaskDelegate {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        let percentage = (Double(totalBytesSent) / Double(totalBytesExpectedToSend)) * 100
+        print(String(format: "Uploaded: %d, which is %.2f%", totalBytesSent, percentage))
+        DispatchQueue.main.async {
+            self.progressTextField.stringValue = String(format: "Uploaded: %d bytes, which is %.2f%%", totalBytesSent, percentage)
+        }
+    }
+
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let string = String(data: responseData, encoding: String.Encoding.utf8) {
+            print(string)
+            DispatchQueue.main.async {
+                self.linkTextField.stringValue = string
+            }
+        }
+        responseData = Data()
+    }
+}
+
+// MARK: - URLSessionDataDelegate
+extension ViewController: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        responseData.append(data)
+    }
 }

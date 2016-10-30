@@ -10,17 +10,19 @@ import Foundation
 import CoreServices
 
 let uploadURLString = "https://transfer.sh/"
-//let uploadURL = URL(string: uploadURLString)!
 
 class UploadFile {
-    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+    init(withDelegate delegate: URLSessionDelegate?) {
+        defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: delegate, delegateQueue: nil)
+    }
+    var defaultSession: URLSession
     var dataTask: URLSessionUploadTask?
 
     func upload(_ fileToUpload: URL) {
         if dataTask != nil {
             dataTask?.cancel()
         }
-        
+
         let pe = fileToUpload.pathExtension
         let fn = fileToUpload.lastPathComponent
 
@@ -33,10 +35,7 @@ class UploadFile {
         }
         request.httpMethod = "PUT"
 
-        dataTask = defaultSession.uploadTask(with: request, fromFile: fileToUpload) { (data, response, error) in
-            let string = String(data: data!, encoding: String.Encoding.utf8)
-            print(string!)
-        }
+        dataTask = defaultSession.uploadTask(with: request, fromFile: fileToUpload)
 
         dataTask?.resume()
     }
