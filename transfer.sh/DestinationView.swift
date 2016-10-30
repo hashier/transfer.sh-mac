@@ -11,7 +11,6 @@ import Cocoa
 
 protocol DestinationViewDelegate {
     func processFileURLs(_ urls: [URL])
-    func processFile(_ image: NSImage)
 }
 
 private let lineWidth: CGFloat = 6.0
@@ -74,13 +73,11 @@ class DestinationView: NSView {
 
         if let urls = pasteBoard.readObjects(forClasses: [NSURL.self], options: filteringOptions) as? [URL], !urls.isEmpty {
             delegate?.processFileURLs(urls)
-            return true
-        } else if let image = NSImage(pasteboard: pasteBoard) {
-            delegate?.processFile(image)
+
             return true
         }
-        return true
-        
+
+        return false
     }
 
 

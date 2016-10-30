@@ -10,21 +10,29 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet private weak var dragToView: DestinationView! {
+        didSet {
+            dragToView.delegate = self
+        }
+    }
     @IBOutlet private weak var destinationView: DestinationView!
+    @IBOutlet private weak var linkTextField: NSTextField!
+    @IBOutlet internal weak var progressTextField: NSTextField! {
+        didSet {
+            progressTextField.stringValue = "Upload not yet started"
+        }
+    }
 
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        destinationView.delegate = self
-
-        let test = UploadFile()
-        test.upload()
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
-            print(representedObject ?? "")
+            // Update the view, if already loaded.
+            print(representedObject ?? "hashier: debug")
         }
     }
 
@@ -37,10 +45,17 @@ extension ViewController: DestinationViewDelegate {
         for (index, url) in urls.enumerated() {
             print("hashier: num: \(index) url: \(url)")
         }
+        guard let url = urls.first, urls.count == 1 else {
+            print("Only one URL supported for now")
+            progressTextField.stringValue = "Upload not yet started"
+            return
+        }
+        uploadFile(url)
     }
 
-    func processFile(_ image: NSImage) {
-
+    private func uploadFile(_ fileToUpload: URL) {
+        let test = UploadFile()
+        test.upload(fileToUpload)
     }
 
 }

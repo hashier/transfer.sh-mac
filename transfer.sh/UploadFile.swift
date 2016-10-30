@@ -16,12 +16,10 @@ class UploadFile {
     let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
     var dataTask: URLSessionUploadTask?
 
-    func upload() {
+    func upload(_ fileToUpload: URL) {
         if dataTask != nil {
             dataTask?.cancel()
         }
-
-        let fileToUpload = URL(string: "/Users/chl/Desktop/img.png")!
         
         let pe = fileToUpload.pathExtension
         let fn = fileToUpload.lastPathComponent
