@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		CE28C6A81DB94EB7003CCCE8 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		CE395CE81DC7DB77004279FD /* transfer.sh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = transfer.sh.entitlements; sourceTree = "<group>"; };
 		CED432DC1DB13B9C00966DFD /* transfer.sh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = transfer.sh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED432DF1DB13B9C00966DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED432E11DB13B9C00966DFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		CED432DE1DB13B9C00966DFD /* transfer.sh */ = {
 			isa = PBXGroup;
 			children = (
+				CE395CE81DC7DB77004279FD /* transfer.sh.entitlements */,
 				CE28C6A81DB94EB7003CCCE8 /* Helper.swift */,
 				CED432DF1DB13B9C00966DFD /* AppDelegate.swift */,
 				CED432F61DB3E60A00966DFD /* DestinationView.swift */,
@@ -107,6 +109,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = X8GFX23QE8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -264,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = transfer.sh/transfer.sh.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
@@ -279,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = transfer.sh/transfer.sh.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
